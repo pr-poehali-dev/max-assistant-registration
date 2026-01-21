@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "AI chat response",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "message": "Привет, Макс! Как дела?"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "response": "string",
+        "model": "gpt-4o-mini"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Empty message error",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "message": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
